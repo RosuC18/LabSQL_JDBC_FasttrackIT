@@ -29,9 +29,6 @@ public class DemoCRUDPeUsers {
                 obiect.readAllUsers();
                 break;
             case 2:
-                System.out.println("Insert ID: ");
-                Id=input.nextInt();
-                u.setId(Id);
                 System.out.println("Insert name: ");
                 name=inname.nextLine();
                 u.setUsername(name);
@@ -106,10 +103,9 @@ public class DemoCRUDPeUsers {
 
         // rulare sql
 
-        PreparedStatement pSt = LoadConn().prepareStatement("insert into users(id,username, password) values(?,?, ?)");
-        pSt.setString(2, u.getUsername());
-        pSt.setString(3, u.getPassword());
-        pSt.setInt(1,u.getId());
+        PreparedStatement pSt = LoadConn().prepareStatement("insert into users(username, password) values(?,?)");
+        pSt.setString(1, u.getUsername());
+        pSt.setString(2, u.getPassword());
         int val = pSt.executeUpdate(); // 1
 
         boolean ok = false;
