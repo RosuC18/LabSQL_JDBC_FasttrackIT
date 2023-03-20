@@ -1,14 +1,16 @@
 public class User {
 
-    public User(int id,String username, String password) {
+    public User(String username, String password){
         this.username = username;
         this.password = password;
-        this.id = id;
+
     }
+
 
     private String username;
     private String password;
-    private int id;
+    private  long  id;
+    private boolean isAdmin;
 
     public String getUsername() {
         return username;
@@ -26,12 +28,20 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(long id) {
+       this.id = id;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 
     @Override
@@ -39,7 +49,9 @@ public class User {
         return "User{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", id=" + id +
+                ", id_user=" + id +
                 '}';
     }
+
+
 }
