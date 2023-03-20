@@ -2,14 +2,13 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
-
-    public static void main(String[] args)  {
-        CRUDonUser objUser=new CRUDonUser();
-        CRUDonAdmin objAdmin=new CRUDonAdmin();
-
+    CRUDonUser objUser=new CRUDonUser();
+    CRUDonAdmin objAdmin=new CRUDonAdmin();
+    public void Login(){
         long id = -1;
         User u=null;
         while(true){
+            System.out.println("Please login:");
             System.out.println("Insert username:");
             Scanner sc = new Scanner(System.in);
             String username = sc.nextLine();
@@ -46,4 +45,15 @@ public class Main {
         }
 
     }
-}
+
+
+    public static void main(String[] args)  {
+
+        Main main=new Main();
+        main.Login();
+
+
+        }
+
+    }
+

@@ -9,6 +9,7 @@ public class CRUDonUser {
 
     public void UserBooks(){
     CRUDonUser objUser=new CRUDonUser();
+    Main main=new Main();
     Scanner intitle=new Scanner(System.in);
     Scanner inauthor=new Scanner(System.in);
     Scanner input=new Scanner(System.in);
@@ -33,7 +34,7 @@ public class CRUDonUser {
                 //  objAdmin.readAllbooks();
                 break;
             case 2:
-                System.out.println("Insert to which Id you want to add :");
+                System.out.println("Insert to which Id_user you want to add :");
                 Id=input.nextInt();
                 b.setId_user(Id);
                 System.out.println("Insert title: ");
@@ -44,10 +45,10 @@ public class CRUDonUser {
                 b.setAuthor(author);
                 objUser.insert(b);
                 objUser.readAllbooks();
-                // objAdmin.readAllbooks(u);
+
                 break;
             case 3:
-                System.out.print("Insert ID you want to update:");
+                System.out.print("Insert Id_books you want to update:");
                 Id = input.nextInt();
                 b.setId_books(Id);
                 while(true){
@@ -85,13 +86,14 @@ public class CRUDonUser {
                 break;
 
             case 4:
-                System.out.print("Insert Id for delete the record : ");
+                System.out.print("Insert Id_books for delete the record : ");
                 Id=input.nextInt();
                 b.setId_books(Id);
                 objUser.delete(b);
                 objUser.readAllbooks();
                 break;
             case -1:
+                main.Login();
                 break;
         }}
 }
@@ -102,7 +104,7 @@ public class CRUDonUser {
         System.out.println("2-> add a book!");
         System.out.println("3-> Update book!");
         System.out.println("4-> remove book!");
-        System.out.println("-1 -> exit!");
+        System.out.println("-1 -> Logout!");
         System.out.print("Choose! : ");
         int nr = 0;
         try {

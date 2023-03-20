@@ -4,7 +4,7 @@ import java.util.*;
 public class CRUDonAdmin {
 
     public  void Admin()  {
-
+        Main main=new Main();
         CRUDonAdmin objAdmin = new CRUDonAdmin();
         Scanner inname=new Scanner(System.in);
         Scanner inpass=new Scanner(System.in);
@@ -84,6 +84,7 @@ public class CRUDonAdmin {
                 objAdmin.readAllUsers();
                 break;
             case -1:
+                main.Login();
                 break;
         }}
     }
@@ -109,7 +110,7 @@ public class CRUDonAdmin {
        System.out.println("2-> add a product!");
         System.out.println("3-> modify a product!");
        System.out.println("4-> remove a product!");
-        System.out.println("-1 -> exit!");
+        System.out.println("-1 -> Logout");
        System.out.print("Choose! : ");
         int nr = 0;
         try {
