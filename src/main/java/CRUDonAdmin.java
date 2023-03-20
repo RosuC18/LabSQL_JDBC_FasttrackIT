@@ -132,13 +132,16 @@ public class CRUDonAdmin {
             val = pSt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } finally {
+        } finally
+        {
+            boolean ok = false;
+            if(val!=0)
+                ok=true;
+            return ok;
         }
 
-        boolean ok = false;
-        if(val!=0)
-           ok=true;
-        return ok;
+
+
     }
 
     private List<User> readAllUsers()  {
@@ -221,7 +224,7 @@ public class CRUDonAdmin {
 
 
     private List<Object> readAllAdmin()  {
-       List<Object> lo = new ArrayList<Object>();
+       List<Object> lo = new ArrayList<>();
 
         try {
             Statement pSt = LoadConn().createStatement();
@@ -230,6 +233,7 @@ public class CRUDonAdmin {
 
 
             while(rs.next()) {
+
                 Long i =rs.getLong("iduser");
                 String user = rs.getString("username").trim();
                 String p = rs.getString("password").trim();

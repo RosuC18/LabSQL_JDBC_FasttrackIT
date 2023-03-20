@@ -73,6 +73,10 @@ public class CRUDonUser {
                     System.out.print("Insert new author:");
                     author = inauthor.nextLine();
                     b.setAuthor(author);
+                    System.out.print("Insert new title:");
+                    title = intitle.nextLine();
+                    b.setTitle(title);
+                    objUser.updateTitle(b);
                     objUser.updateAuthor(b);
                     objUser.readAllbooks();
                 }

@@ -20,7 +20,10 @@ public class Main {
             u.setId(id);
             System.out.println(u);
             if(id!=-1)
-                break;
+            {  break;}
+            else {
+                System.out.println("Username or password incorrect,retry:");
+            }
 
         }
         while(true) {
