@@ -105,11 +105,11 @@ public class CRUDonAdmin {
     }
    private static int menu() {
        System.out.println("Menu");
-        System.out.println("1-> display list! ");
+        System.out.println("1-> display User list! ");
        // System.out.println("2-> search a product!");
-       System.out.println("2-> add a product!");
-        System.out.println("3-> modify a product!");
-       System.out.println("4-> remove a product!");
+       System.out.println("2-> add User!");
+        System.out.println("3-> modify a User!");
+       System.out.println("4-> remove a User!");
         System.out.println("-1 -> Logout");
        System.out.print("Choose! : ");
         int nr = 0;
