@@ -34,9 +34,10 @@ public class CRUDonUser {
                 //  objAdmin.readAllbooks();
                 break;
             case 2:
-                System.out.println("Insert to which Id_user you want to add :");
-                Id=input.nextInt();
-                b.setId_user(Id);
+              //  System.out.println("Insert to which Id_user you want to add :");
+               // Id=input.nextInt();
+               b.setId_user(main.id);
+
                 System.out.println("Insert title: ");
                 title = intitle.nextLine();
                 b.setTitle(title);
@@ -48,9 +49,10 @@ public class CRUDonUser {
 
                 break;
             case 3:
-                System.out.print("Insert Id_books you want to update:");
-                Id = input.nextInt();
+               System.out.print("Insert Id_books you want to update:");
+               Id = input.nextInt();
                 b.setId_books(Id);
+                b.setId_user(main.id);
                 while(true){
                     System.out.println("What do you want to update? :");
                     System.out.println("1.Title");
@@ -89,6 +91,7 @@ public class CRUDonUser {
                 System.out.print("Insert Id_books for delete the record : ");
                 Id=input.nextInt();
                 b.setId_books(Id);
+                b.setId_user(main.id);
                 objUser.delete(b);
                 objUser.readAllbooks();
                 break;
@@ -165,9 +168,10 @@ public class CRUDonUser {
 
         int val = 0; // 1
         try {
-            PreparedStatement pSt = CRUDonAdmin.LoadConn().prepareStatement("update books set title=? where id = ?");
+            PreparedStatement pSt = CRUDonAdmin.LoadConn().prepareStatement("update books set title=?  where id=? and id_user=?");
             pSt.setLong(2,b.getId_books());
             pSt.setString(1, b.getTitle());
+            pSt.setLong(3,b.getId_user());
             val = pSt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -183,9 +187,10 @@ public class CRUDonUser {
 
         int val = 0; // 1
         try {
-            PreparedStatement pSt = CRUDonAdmin.LoadConn().prepareStatement("update books set author= ?  where id = ?");
+            PreparedStatement pSt = CRUDonAdmin.LoadConn().prepareStatement("update books set author= ?  where id = ? and id_user=?");
             pSt.setLong(2,b.getId_books());
             pSt.setString(1, b.getAuthor());
+            pSt.setLong(3,b.getId_user());
 
             val = pSt.executeUpdate();
         } catch (SQLException e) {
@@ -201,8 +206,9 @@ public class CRUDonUser {
     private void delete(Books b )  {
 
         try {
-            PreparedStatement pSt = CRUDonAdmin.LoadConn().prepareStatement("delete from books where id=? ");
+            PreparedStatement pSt = CRUDonAdmin.LoadConn().prepareStatement("delete from books where id=? and id_user=?");
             pSt.setLong(1,b.getId_books());
+            pSt.setLong(2,b.getId_user());
             int val = pSt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

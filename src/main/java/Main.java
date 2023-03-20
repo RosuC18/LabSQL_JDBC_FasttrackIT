@@ -4,8 +4,9 @@ import java.util.Scanner;
 public class Main {
     CRUDonUser objUser=new CRUDonUser();
     CRUDonAdmin objAdmin=new CRUDonAdmin();
+    static long id;
     public void Login(){
-        long id = -1;
+
         User u=null;
         while(true){
             System.out.println("Please login:");
@@ -40,10 +41,7 @@ public class Main {
                 objAdmin.Admin();
                 break;
             }
-
-
         }
-
     }
 
 
@@ -51,9 +49,6 @@ public class Main {
 
         Main main=new Main();
         main.Login();
-
-
         }
-
     }
 
